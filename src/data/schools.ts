@@ -104,7 +104,7 @@ export const schools: School[] = [
             { name: "Business Club", path: "/logos/hulhudhuffaaru/businessLogo.png" },
             { name: "Islam Club", path: "/logos/hulhudhuffaaru/islamLogo.png" },
             { name: "Science Club", path: "/logos/hulhudhuffaaru/scienceclub.png" },
-            { name: "Higher Secondary", path: "/logos/hulhudhuffaaru/HS logo.svg" },
+            { name: "Higher Secondary", path: "/logos/hulhudhuffaaru/hs-logo.svg" },
         ]
     },
     {
