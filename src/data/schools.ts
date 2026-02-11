@@ -7,6 +7,9 @@ export type School = {
     id: string;
     name: string;
     nameDhivehi: string;
+    motto?: string;
+    mission?: string;
+    vision?: string;
     atoll: string;
     island: string;
     location: string;
@@ -33,6 +36,9 @@ export const schools: School[] = [
         id: "angolhitheem",
         name: "Angolhitheem School",
         nameDhivehi: "އަނގޮޅިތީމު ސްކޫލް",
+        motto: "Learning for Life",
+        mission: "To provide a conducive learning environment that empowers students to reach their full potential.",
+        vision: "To be a leading educational institution known for academic excellence and character building.",
         atoll: "Raa Atoll",
         island: "Angolhitheemu",
         location: "R. Angolhitheemu",
@@ -52,6 +58,9 @@ export const schools: School[] = [
         id: "hithaadhoo",
         name: "Hithaadhoo School",
         nameDhivehi: "ހިތާދޫ ސްކޫލް",
+        motto: "Education is Empowerment",
+        mission: "To inspire students to become lifelong learners and responsible citizens.",
+        vision: "Excellence in education for a bright future.",
         atoll: "Baa Atoll",
         island: "Hithaadhoo",
         location: "B. Hithaadhoo",
@@ -70,6 +79,9 @@ export const schools: School[] = [
         id: "hulhudhuffaaru",
         name: "Hulhudhuffaaru School",
         nameDhivehi: "ހުޅުދުއްފާރު ސްކޫލް",
+        motto: "Knowledge is Light",
+        mission: "To foster an inclusive environment where students can thrive academically, socially and emotionally.",
+        vision: "Empowering students today for a better tomorrow.",
         atoll: "Raa Atoll",
         island: "Hulhudhuffaaru",
         location: "R. Hulhudhuffaaru",
@@ -92,12 +104,16 @@ export const schools: School[] = [
             { name: "Business Club", path: "/logos/hulhudhuffaaru/businessLogo.png" },
             { name: "Islam Club", path: "/logos/hulhudhuffaaru/islamLogo.png" },
             { name: "Science Club", path: "/logos/hulhudhuffaaru/scienceclub.png" },
+            { name: "Higher Secondary", path: "/logos/hulhudhuffaaru/HS logo.svg" },
         ]
     },
     {
         id: "vaadhoo",
         name: "Vaadhoo School",
         nameDhivehi: "ވާދޫ ސްކޫލް",
+        motto: "Strive for Excellence",
+        mission: "To provide a holistic education that prepares students for global challenges.",
+        vision: "A community of learners achieving excellence.",
         atoll: "Gaafu Dhaalu Atoll",
         island: "Vaadhoo",
         location: "GDh. Vaadhoo",
