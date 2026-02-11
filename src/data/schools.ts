@@ -1,3 +1,8 @@
+export type SubLogo = {
+    name: string;
+    path: string;
+};
+
 export type School = {
     id: string;
     name: string;
@@ -20,6 +25,7 @@ export type School = {
         downloads: string;
         views: string;
     };
+    subLogos?: SubLogo[];
 };
 
 export const schools: School[] = [
@@ -76,7 +82,17 @@ export const schools: School[] = [
             instagram: "https://instagram.com/hulhudhuffaaruschool"
         },
         colors: ["#D32F2F", "#FFFFFF", "#FFCDD2"],
-        stats: { downloads: "2.1k", views: "8.9k" }
+        stats: { downloads: "2.1k", views: "8.9k" },
+        subLogos: [
+            { name: "Human Rights Club", path: "/logos/hulhudhuffaaru/HumanRightsLogo.png" },
+            { name: "Language Club", path: "/logos/hulhudhuffaaru/LanguageClubLogo.png" },
+            { name: "Prefect Board", path: "/logos/hulhudhuffaaru/PrefectBoardLogo.png" },
+            { name: "Sports Club", path: "/logos/hulhudhuffaaru/SportsClubLogo.png" },
+            { name: "Student Council", path: "/logos/hulhudhuffaaru/StudentCouncil.png" },
+            { name: "Business Club", path: "/logos/hulhudhuffaaru/businessLogo.png" },
+            { name: "Islam Club", path: "/logos/hulhudhuffaaru/islamLogo.png" },
+            { name: "Science Club", path: "/logos/hulhudhuffaaru/scienceclub.png" },
+        ]
     },
     {
         id: "vaadhoo",

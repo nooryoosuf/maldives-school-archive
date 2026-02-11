@@ -4,7 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { schools } from "@/data/schools";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, Download, ShieldCheck, Phone, Globe, Hash, Share2 } from "lucide-react";
+import { ArrowLeft, Download, ShieldCheck, Phone, Globe, Hash, Share2, Users, LayoutGrid } from "lucide-react";
 import ColorBlock from "@/components/ColorBlock";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -60,25 +60,35 @@ export default function SchoolBrandPage() {
                         </motion.div>
 
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start mb-24">
-                            {/* Logo Box */}
-                            <div className="md:col-span-12 lg:col-span-5 aspect-square bg-slate-50 border border-slate-100 rounded-[2.5rem] flex items-center justify-center p-16 checkered shadow-sm group">
+                            {/* Primary Logo Box */}
+                            <div className="md:col-span-12 lg:col-span-5 aspect-square bg-[#FBFBFA] border border-slate-100 rounded-[2.5rem] flex items-center justify-center p-16 shadow-sm group relative">
                                 <div className="relative w-full h-full transition-transform duration-700 group-hover:scale-105">
                                     <Image src={school.logo} alt={school.name} fill className="object-contain" />
+                                </div>
+                                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-slate-300 uppercase tracking-widest">
+                                    Primary Identity
                                 </div>
                             </div>
 
                             {/* Description & Action */}
                             <div className="md:col-span-12 lg:col-span-7 flex flex-col justify-center min-h-full">
-                                <h3 className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400 mb-6">Archive Detail</h3>
-                                <p className="text-2xl md:text-3xl font-medium text-slate-600 leading-relaxed font-serif italic mb-12 strike">
+                                <h3 className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400 mb-6 flex items-center gap-2">
+                                    <ShieldCheck className="w-3.5 h-3.5" /> Institutional Detail
+                                </h3>
+                                <p className="text-2xl md:text-3xl font-medium text-slate-600 leading-relaxed font-serif italic mb-12">
                                     "{school.description}"
                                 </p>
 
                                 <div className="flex flex-wrap gap-4">
-                                    <button className="flex items-center gap-3 bg-brand text-white px-8 py-4 rounded-2xl font-semibold hover:bg-brand-hover transition-all shadow-lg shadow-brand/10">
-                                        <Download className="w-5 h-5" />
-                                        Download Brand Identity
-                                    </button>
+                                    <div className="relative group/download">
+                                        <button className="flex items-center gap-3 bg-brand text-white px-8 py-4 rounded-2xl font-semibold hover:bg-brand-hover transition-all shadow-lg shadow-brand/10">
+                                            <Download className="w-5 h-5" />
+                                            Download (SVG, PNG, JPEG)
+                                        </button>
+                                        <div className="absolute top-full left-0 mt-2 bg-slate-900 text-white text-[10px] font-semibold px-4 py-2 rounded-lg opacity-0 group-hover/download:opacity-100 transition-opacity whitespace-nowrap z-20">
+                                            Includes SVG, PNG, and JPEG formats
+                                        </div>
+                                    </div>
                                     <button className="flex items-center gap-3 bg-slate-50 text-slate-600 px-8 py-4 rounded-2xl font-semibold hover:bg-slate-100 transition-all border border-slate-100">
                                         <Share2 className="w-5 h-5" />
                                         Share Archive
@@ -87,13 +97,48 @@ export default function SchoolBrandPage() {
                             </div>
                         </div>
 
+                        {/* Clubs & Bodies Logos - New Section */}
+                        {school.subLogos && school.subLogos.length > 0 && (
+                            <div className="mb-24">
+                                <div className="flex items-baseline justify-between mb-10 px-1 border-b border-slate-100 pb-6">
+                                    <h3 className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400 flex items-center gap-2">
+                                        <Users className="w-3.5 h-3.5" /> School Bodies & Clubs
+                                    </h3>
+                                    <p className="text-[11px] font-semibold text-brand uppercase tracking-widest">{school.subLogos.length} Identities</p>
+                                </div>
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                                    {school.subLogos.map((sub: any, idx: number) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, scale: 0.95 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: idx * 0.05 }}
+                                            className="group flex flex-col gap-4"
+                                        >
+                                            <div className="aspect-square bg-[#FBFBFA] border border-slate-100 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden transition-all duration-300 group-hover:bg-white group-hover:shadow-md group-hover:-translate-y-1">
+                                                <div className="relative w-full h-full grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110">
+                                                    <Image src={sub.path} alt={sub.name} fill className="object-contain" />
+                                                </div>
+                                            </div>
+                                            <p className="text-[12px] font-semibold text-slate-600 group-hover:text-brand transition-colors text-center px-2">
+                                                {sub.name}
+                                            </p>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         {/* Color System */}
                         <div>
                             <div className="flex items-baseline justify-between mb-10 px-1 border-b border-slate-100 pb-6">
-                                <h3 className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">Official Color Palette</h3>
+                                <h3 className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400 flex items-center gap-2">
+                                    <LayoutGrid className="w-3.5 h-3.5" /> Official Color Palette
+                                </h3>
                                 <p className="text-[11px] font-semibold text-brand uppercase tracking-widest">v1.2 Compliance</p>
                             </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-[2rem] overflow-hidden">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-[2rem] overflow-hidden shadow-sm">
                                 {school.colors.map((color: string) => (
                                     <ColorBlock key={color} color={color} />
                                 ))}
